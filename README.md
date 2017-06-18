@@ -20,6 +20,10 @@
 
 ### 怎么用
 
+```bash
+npm i simple-netease-cloud-music --save
+```
+
 ```javascript
 const NeteaseMusic = require('simple-netease-cloud-music')
 const nm = new NeteaseMusic()
