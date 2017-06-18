@@ -1,7 +1,8 @@
 {
   "name": "simple-netease-cloud-music",
-  "version": "0.1.0",
+  "version": "0.1.6",
   "description": "网易云音乐 NodeJS 版 API",
+  "main": "netease.js",
   "scripts": {
     "test": "node example.js"
   },
