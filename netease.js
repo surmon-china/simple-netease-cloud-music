@@ -306,7 +306,7 @@ class Netease {
         response.on('data', chunk => responseBody += chunk.toString())
 
         // once all the data has been read, resolve the Promise 
-        response.on('end', () => resolve(responseBody))
+        response.on('end', () => resolve(JSON.parse(responseBody)))
     }
 }
 
