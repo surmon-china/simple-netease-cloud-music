@@ -1,0 +1,17 @@
+{
+  "name": "simple-netease-cloud-music",
+  "version": "0.1.0",
+  "description": "网易云音乐 NodeJS 版 API",
+  "scripts": {
+    "test": "node example.js"
+  },
+  "keywords": [
+    "网易云音乐",
+    "网易云",
+    "音乐",
+    "网易云音乐nodejs",
+    "Netease Cloud Music"
+  ],
+  "author": "Surmon",
+  "license": "MIT"
+}
