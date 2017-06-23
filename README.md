@@ -16,7 +16,7 @@
 
 核心逻辑的实现参考 PHP 版本的 [Meting](https://github.com/metowolf/Meting) 项目。
 
-核心的 API 类的逻辑来自于 [张小张同学](http://weibo.com/u/2561647287)。
+核心的 API 类的逻辑来自于 [张小张同学](https://github.com/ritayzy)。
 
 ### 怎么用
 
