@@ -1,3 +1,13 @@
+[![](https://badge.juejin.im/entry/5946b695128fe1006a48643f/likes.svg?style=flat-square)](https://juejin.im/entry/5946b695128fe1006a48643f/detail)
+[![GitHub issues](https://img.shields.io/github/issues/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music/issues)
+[![GitHub forks](https://img.shields.io/github/forks/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music/network)
+[![GitHub stars](https://img.shields.io/github/stars/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music/stargazers)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://twitter.com/intent/tweet?url=https://github.com/surmon-china/simple-netease-cloud-music)
+
+[![NPM](https://nodei.co/npm/simple-netease-cloud-music.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/simple-netease-cloud-music/)
+[![NPM](https://nodei.co/npm-dl/simple-netease-cloud-music.png?months=9&height=3)](https://nodei.co/npm/simple-netease-cloud-music/)
+
+
 ### 能做什么
 
 简单、统一、轻巧的 Node.js 版网易云音乐 API。
