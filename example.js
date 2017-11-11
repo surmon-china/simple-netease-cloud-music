@@ -6,7 +6,11 @@ netease.search('一人饮酒醉').then(data => {
 })
 
 netease.playlist('751387161').then(data => {
-    console.log('歌单', data)
+    console.log('歌单1', data)
+})
+
+netease._playlist('751387161').then(data => {
+    console.log('歌单2', data)
 })
 
 netease.picture('19124905253588326', 400).then(data => {
@@ -18,7 +22,7 @@ netease.artist('4130').then(data => {
 })
 
 netease.album('35327877').then(data => {
-    console.log('歌单', data)
+    console.log('唱片', data)
 })
 
 netease.lyric('479403027').then(data => {
