@@ -1,8 +1,8 @@
 const http = require('http')
-const crypto = require('crypto')
-const querystring = require('querystring')
-const Buffer = require('buffer').Buffer  
 const pack = require('./pack')
+const crypto = require('crypto')
+const Buffer = require('buffer').Buffer
+const querystring = require('querystring')
 
 // 私有方法
 const neteaseAESECB = Symbol('neteaseAESECB')
@@ -88,6 +88,29 @@ class Netease {
         const options = this[getHttpOption]('POST', '/api/linux/forward', Buffer.byteLength(form))
 
         return this[makeRequest](options, form)
+    }
+
+    /**
+     * 根据歌单 id 获取歌单信息和歌曲列表 !!!临时替代方案
+     * 
+     * @param {Integer} string 歌单 id
+     * 
+     * @return {Promise}
+     */
+    _playlist(id) {
+        const body = {
+            method: 'POST',
+            params: {
+                id,
+                n: 1000
+            },
+            url: '/api/v3/playlist/detail'
+        }
+
+        body.url += '?' + querystring.stringify(body.params)
+        const options = this[getHttpOption](body.method, body.url)
+
+        return this[makeRequest](options)
     }
 
     /**
@@ -254,7 +277,9 @@ class Netease {
 
         if ('POST' === method) {
             options['headers']['Content-Type'] = 'application/x-www-form-urlencoded'
-            options['headers']['Content-Length'] = contentLength
+            if (contentLength) {
+                options['headers']['Content-Length'] = contentLength
+            }
         }
 
         return options
@@ -280,7 +305,9 @@ class Netease {
             })
 
             // write data to request body
-            req.write(form)
+            if (form) {
+                req.write(form)
+            }
             req.end()
         })
     }

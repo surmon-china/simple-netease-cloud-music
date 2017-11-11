@@ -12,6 +12,10 @@
 
 核心的 API 类的逻辑来自于 [张小张同学](https://github.com/ritayzy)。
 
+### 最新更新
+
+若 API `playlist` 数据出现异常，可暂时使用 API `_playlist`
+
 ### 怎么用
 
 ```bash
