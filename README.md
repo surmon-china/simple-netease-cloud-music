@@ -1,8 +1,11 @@
-[![](https://badge.juejin.im/entry/5946b695128fe1006a48643f/likes.svg?style=flat-square)](https://juejin.im/entry/5946b695128fe1006a48643f/detail)
+[![GitHub stars](https://img.shields.io/github/stars/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music/stargazers)
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music)
 [![GitHub issues](https://img.shields.io/github/issues/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music/issues)
 [![GitHub forks](https://img.shields.io/github/forks/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music/network)
-[![GitHub stars](https://img.shields.io/github/stars/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music/stargazers)
+[![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://twitter.com/intent/tweet?url=https://github.com/surmon-china/simple-netease-cloud-music)
+[![](https://badge.juejin.im/entry/5946b695128fe1006a48643f/likes.svg?style=flat-square)](https://juejin.im/entry/5946b695128fe1006a48643f/detail)
 
 [![NPM](https://nodei.co/npm/simple-netease-cloud-music.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/simple-netease-cloud-music/)
 [![NPM](https://nodei.co/npm-dl/simple-netease-cloud-music.png?months=9&height=3)](https://nodei.co/npm/simple-netease-cloud-music/)
@@ -69,8 +72,8 @@ nm.song('479403027').then(data => {
 })
 ```
 
-### Test
+### 测试执行
 
 ```
-node example.js
+npm run test
 ```
