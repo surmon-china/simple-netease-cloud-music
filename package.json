@@ -15,7 +15,12 @@
     "网易云音乐nodejs",
     "Netease Cloud Music"
   ],
-  "author": "Surmon",
+  "author": {
+    "name": "Surmon",
+    "email": "surmon@foxmail.com",
+    "url": "http://surmon.me"
+  },
+  "private": false,
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
