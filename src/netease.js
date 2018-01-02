@@ -7,6 +7,7 @@ const querystring = require('querystring')
 // 私有方法
 const neteaseAESECB = Symbol('neteaseAESECB')
 const getHttpOption = Symbol('getHttpOption')
+const getRandomHex = Symbol('getRandomHex')
 const makeRequest = Symbol('makeRequest')
 const onResponse = Symbol('onResponse')
 
@@ -270,7 +271,7 @@ class Netease {
             hostname: 'music.163.com',
             headers: {
                 'referer': 'https://music.163.com/',
-                'cookie': 'os=linux; appver=1.0.0.1026; osver=Ubuntu%2016.10; MUSIC_U=78d411095f4b022667bc8ec49e9a44cca088df057d987f5feaf066d37458e41c4a7d9447977352cf27ea9fee03f6ec4441049cea1c6bb9b6; __remember_me=true',
+                'cookie': 'os=linux; appver=1.0.0.1026; osver=Ubuntu%2016.10; MUSIC_U=' + this[getRandomHex](112) + '; __remember_me=true',
                 'useragent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
             }
         }
@@ -283,6 +284,19 @@ class Netease {
         }
 
         return options
+    }
+
+    /**
+     * 获取随机字符串
+     *
+     * @param {Integer} length 生成字符串的长度
+     */
+    [getRandomHex](length) {
+        let result = [];
+        for (let i = 0; i < length; i++) {
+            result.push(String.fromCharCode(Math.round(Math.random() * 25) + 65))
+        }
+        return result.join("")
     }
 
     /**
