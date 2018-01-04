@@ -12,6 +12,7 @@ var querystring = require('querystring');
 
 var neteaseAESECB = Symbol('neteaseAESECB');
 var getHttpOption = Symbol('getHttpOption');
+var getRandomHex = Symbol('getRandomHex');
 var makeRequest = Symbol('makeRequest');
 var onResponse = Symbol('onResponse');
 
@@ -219,7 +220,7 @@ var Netease = function () {
                 hostname: 'music.163.com',
                 headers: {
                     'referer': 'https://music.163.com/',
-                    'cookie': 'os=linux; appver=1.0.0.1026; osver=Ubuntu%2016.10; MUSIC_U=78d411095f4b022667bc8ec49e9a44cca088df057d987f5feaf066d37458e41c4a7d9447977352cf27ea9fee03f6ec4441049cea1c6bb9b6; __remember_me=true',
+                    'cookie': 'os=linux; appver=1.0.0.1026; osver=Ubuntu%2016.10; MUSIC_U=' + this[getRandomHex](112) + '; __remember_me=true',
                     'useragent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
                 }
             };
@@ -232,6 +233,15 @@ var Netease = function () {
             }
 
             return options;
+        }
+    }, {
+        key: getRandomHex,
+        value: function value(length) {
+            var result = [];
+            for (var i = 0; i < length; i++) {
+                result.push(String.fromCharCode(Math.round(Math.random() * 25) + 65));
+            }
+            return result.join("");
         }
     }, {
         key: makeRequest,
