@@ -76,4 +76,5 @@ nm.song('479403027').then(data => {
 
 ```
 npm run test
+npm run example
 ```

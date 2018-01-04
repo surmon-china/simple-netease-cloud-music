@@ -1,11 +1,12 @@
 {
   "name": "simple-netease-cloud-music",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "网易云音乐 NodeJS 版 API",
   "main": "dist/netease.js",
   "scripts": {
     "test": "node examples/index.js",
     "dev": "devtool dev/index.js --watch",
+    "example": "devtool examples/index.js --watch",
     "build": "babel src --out-dir dist"
   },
   "keywords": [
