@@ -221,7 +221,7 @@ var Netease = function () {
                 headers: {
                     'referer': 'https://music.163.com/',
                     'cookie': 'os=linux; appver=1.0.0.1026; osver=Ubuntu%2016.10; MUSIC_U=' + this[getRandomHex](112) + '; __remember_me=true',
-                    'useragent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+                    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
                 }
             };
 
