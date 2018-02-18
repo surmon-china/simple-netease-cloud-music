@@ -1,7 +1,7 @@
 // Mocha Test
 const netease = require('../src/netease')
 const expect = require('chai').expect
-const nm = new netease('MUSIC_U=55c961cd063c81f50dd18e6e409f8392c7665c765a9c0233d78fcae6a30c893cf738edf12ac13f7a88c56137f5cdaae0374ec501422a03d2bf122d59fa1ed6a2; buildver=1506310743; resolution=1920x1080; mobilename=MI5; osver=7.0.1; channel=coolapk; os=android; appver=4.2.0');
+const nm = new netease();
 describe('测试网易云接口', () => {
   it('测试搜索接口', function (done) {
     nm.search('一人饮酒独醉')
