@@ -39,6 +39,9 @@ npm i simple-netease-cloud-music --save
 const NeteaseMusic = require('simple-netease-cloud-music')
 const nm = new NeteaseMusic()
 
+// 当然，你也可以通过以下方式来定义模块使用的 cookie
+// const nm = new NeteaseMusic(__Your_Cookies__)
+
 nm.search('一人饮酒醉').then(data => {
     console.log('歌曲搜索', data)
 })
