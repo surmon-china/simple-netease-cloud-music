@@ -47,7 +47,7 @@ function randomCookies(music_u) {
     'MUSIC_U=' + music_u +'; buildver=1506310743; resolution=1920x1080; mobilename=MI5; osver=7.0.1; channel=coolapk; os=android; appver=4.2.0',
     'osver=%E7%89%88%E6%9C%AC%2010.13.3%EF%BC%88%E7%89%88%E5%8F%B7%2017D47%EF%BC%89; os=osx; appver=1.5.9; MUSIC_U=' + music_u + '; channel=netease;'
   ]
-  const num = Math.floor(Math.random() * userAgentList.length);
+  const num = Math.floor(Math.random() * CookiesList.length);
   return CookiesList[num];
 }
 
@@ -314,7 +314,7 @@ class Netease {
             hostname: 'music.163.com',
             headers: {
                 'referer': 'https://music.163.com/',
-                'cookie': this.cookie ||randomCookies(this[getRandomHex](128)),
+                'cookie': this.cookie || randomCookies(this[getRandomHex](128)),
                 'user-agent': randomUserAgent()
             }
         }
