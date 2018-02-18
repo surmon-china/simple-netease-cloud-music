@@ -43,7 +43,7 @@ describe('测试网易云接口', () => {
     nm.picture('3388694837506899', 300)
       .then(data => {
         expect(data).not.to.be.empty
-        expect(data.url).to.be.equal('https://p3.music.126.net/br3IrdCvT7-GjCyUVNONiA==/3388694837506899.jpg?param=300y300')
+        expect(data.url.slice(11, data.url.length)).to.be.equal('music.126.net/br3IrdCvT7-GjCyUVNONiA==/3388694837506899.jpg?param=300y300')
         done()
       })
       .catch(err => {
@@ -79,7 +79,7 @@ describe('测试网易云接口', () => {
     nm.album('35327877')
       .then(data => {
         expect(data).not.to.be.empty
-        expect(data.album.blurPicUrl).to.be.equal(`http://p1.music.126.net/4mUKGD6wyIW0XpTWXiFcdQ==/19124905253588326.jpg`)
+        expect(data.album.blurPicUrl.slice(10, data.album.blurPicUrl.length)).to.be.equal(`music.126.net/4mUKGD6wyIW0XpTWXiFcdQ==/19124905253588326.jpg`)
         done()
       })
       .catch(e => {
