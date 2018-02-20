@@ -270,7 +270,7 @@ class Netease {
             })
             const md5Code = md5(song_id.join(''))
             const base64Code = Buffer.from(md5Code, 'hex').toString('base64')
-            return base64Code.replace('/', '_').replace('+', '-')
+            return base64Code.replace(/\//g, '_').replace(/\+/g, '-')
         }
 
         return new Promise((resolve, reject) => resolve({
