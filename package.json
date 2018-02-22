@@ -7,7 +7,8 @@
     "test": "mocha",
     "dev": "devtool dev/index.js --watch",
     "example": "devtool examples/index.js --watch",
-    "build": "babel src --out-dir dist"
+    "build": "babel src --out-dir dist",
+    "pre:publish": "npm run test && npm run build"
   },
   "keywords": [
     "网易云音乐",

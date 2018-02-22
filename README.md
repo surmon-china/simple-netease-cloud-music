@@ -1,5 +1,5 @@
 [![GitHub stars](https://img.shields.io/github/stars/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music/stargazers)
-[![Travis](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music)
+[![Build Status](https://travis-ci.org/surmon-china/simple-netease-cloud-music.svg?branch=master)](https://travis-ci.org/surmon-china/simple-netease-cloud-music)
 [![GitHub issues](https://img.shields.io/github/issues/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music/issues)
 [![GitHub forks](https://img.shields.io/github/forks/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music/network)
 [![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music)
@@ -40,7 +40,9 @@ const NeteaseMusic = require('simple-netease-cloud-music')
 const nm = new NeteaseMusic()
 
 // 当然，你也可以通过以下方式来定义模块使用的 cookie
-// const nm = new NeteaseMusic(__Your_Cookies__)
+const nm = new NeteaseMusic({
+    cookie: '__Your_Cookies__'
+})
 
 nm.search('一人饮酒醉').then(data => {
     console.log('歌曲搜索', data)
