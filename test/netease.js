@@ -1,7 +1,9 @@
+
 // Mocha Test
 const netease = require('../src/netease')
 const expect = require('chai').expect
-const nm = new netease();
+const nm = new netease()
+
 describe('测试网易云接口', () => {
   it('测试搜索接口', function (done) {
     nm.search('一人饮酒独醉')
@@ -111,5 +113,4 @@ describe('测试网易云接口', () => {
         done(e)
       })
   })
-  
 })

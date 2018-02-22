@@ -32,10 +32,12 @@ function randomCookies(music_u) {
 
 var Netease = function () {
     function Netease() {
+        var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
         _classCallCheck(this, Netease);
 
-        if (arguments[0]) {
-            this.cookie = arguments[0];
+        if (options.cookie) {
+            this.cookie = options.cookie;
         }
         return this;
     }
