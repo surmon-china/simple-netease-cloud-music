@@ -8,7 +8,8 @@
     "dev": "devtool dev/index.js --watch",
     "example": "devtool examples/index.js --watch",
     "build": "babel src --out-dir dist",
-    "pre:publish": "npm run test && npm run build"
+    "finish": "npm run test && npm run build",
+    "publish": "git push && git push --tags && npm publish"
   },
   "keywords": [
     "网易云音乐",
