@@ -21,7 +21,7 @@ describe('测试网易云接口', () => {
     nm.playlist('751387161')
       .then(data => {
         expect(data).not.to.be.empty
-        expect(data.playlist.trackIds.length).to.be.equal(25)
+        expect(data.playlist.trackIds.length).to.be.equal(22)
         done()
       })
       .catch(e => {
@@ -33,7 +33,7 @@ describe('测试网易云接口', () => {
     nm._playlist('751387161')
       .then(data => {
         expect(data).not.to.be.empty
-        expect(data.playlist.trackIds.length).to.be.equal(25)
+        expect(data.playlist.trackIds.length).to.be.equal(22)
         done()
       })
       .catch(e => {
