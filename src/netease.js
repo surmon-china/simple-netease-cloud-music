@@ -1,7 +1,5 @@
 const http = require('http')
-const pack = require('./pack')
 const crypto = require('crypto')
-const Buffer = require('buffer').Buffer
 const querystring = require('querystring')
 
 // 私有方法
@@ -258,9 +256,9 @@ class Netease {
     picture(id, size = 300) {
 
         const md5 = data => {  
-            const buf = new Buffer(data)
+            const buf = Buffer.from(data)
             const str = buf.toString('binary')
-            return crypto.createHash("md5").update(str).digest('hex')  
+            return crypto.createHash('md5').update(str).digest('base64')
         }
 
         const netease_pickey = id => {
@@ -269,8 +267,7 @@ class Netease {
                 return String.fromCharCode(item.charCodeAt() ^ (magic[index % magic.length]).charCodeAt())
             })
             const md5Code = md5(song_id.join(''))
-            const base64Code = Buffer.from(md5Code, 'hex').toString('base64')
-            return base64Code.replace(/\//g, '_').replace(/\+/g, '-')
+            return md5Code.replace(/\//g, '_').replace(/\+/g, '-')
         }
 
         return new Promise((resolve, reject) => resolve({
@@ -287,10 +284,9 @@ class Netease {
      */
     [neteaseAESECB](body) {
         body = JSON.stringify(body)
-        const password = pack('H*', secret)
+        const password = Buffer.from(secret, 'hex').toString('utf8');
         const cipher = crypto.createCipheriv('aes-128-ecb', password, '')
-        body = cipher.update(body, 'utf8', 'base64') + cipher.final('base64')
-        const hex = new Buffer(body, 'base64').toString('hex')
+        const hex = cipher.update(body, 'utf8', 'hex') + cipher.final('hex')
         const form = querystring.stringify({
             eparams: hex.toUpperCase()
         })
@@ -335,11 +331,9 @@ class Netease {
      * @param {Integer} length 生成字符串的长度
      */
     [getRandomHex](length) {
-        let result = []
-        for (let i = 0; i < length; i++) {
-            result.push(String.fromCharCode(Math.round(Math.random() * 25) + 65))
-        }
-        return result.join("")
+        const isOdd = length % 2;
+        const randHex = crypto.randomFillSync(Buffer.alloc((length + isOdd) / 2)).toString('hex')
+        return isOdd ? randHex.slice(1) : randHex;
     }
 
     /**
