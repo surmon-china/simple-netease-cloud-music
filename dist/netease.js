@@ -5,9 +5,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var http = require('http');
-var pack = require('./pack');
 var crypto = require('crypto');
-var Buffer = require('buffer').Buffer;
 var querystring = require('querystring');
 
 var neteaseAESECB = Symbol('neteaseAESECB');
@@ -195,9 +193,9 @@ var Netease = function () {
 
 
             var md5 = function md5(data) {
-                var buf = new Buffer(data);
+                var buf = Buffer.from(data);
                 var str = buf.toString('binary');
-                return crypto.createHash("md5").update(str).digest('hex');
+                return crypto.createHash('md5').update(str).digest('base64');
             };
 
             var netease_pickey = function netease_pickey(id) {
@@ -206,8 +204,7 @@ var Netease = function () {
                     return String.fromCharCode(item.charCodeAt() ^ magic[index % magic.length].charCodeAt());
                 });
                 var md5Code = md5(song_id.join(''));
-                var base64Code = Buffer.from(md5Code, 'hex').toString('base64');
-                return base64Code.replace(/\//g, '_').replace(/\+/g, '-');
+                return md5Code.replace(/\//g, '_').replace(/\+/g, '-');
             };
 
             return new Promise(function (resolve, reject) {
@@ -220,10 +217,9 @@ var Netease = function () {
         key: neteaseAESECB,
         value: function value(body) {
             body = JSON.stringify(body);
-            var password = pack('H*', secret);
+            var password = Buffer.from(secret, 'hex').toString('utf8');
             var cipher = crypto.createCipheriv('aes-128-ecb', password, '');
-            body = cipher.update(body, 'utf8', 'base64') + cipher.final('base64');
-            var hex = new Buffer(body, 'base64').toString('hex');
+            var hex = cipher.update(body, 'utf8', 'hex') + cipher.final('hex');
             var form = querystring.stringify({
                 eparams: hex.toUpperCase()
             });
@@ -256,11 +252,9 @@ var Netease = function () {
     }, {
         key: getRandomHex,
         value: function value(length) {
-            var result = [];
-            for (var i = 0; i < length; i++) {
-                result.push(String.fromCharCode(Math.round(Math.random() * 25) + 65));
-            }
-            return result.join("");
+            var isOdd = length % 2;
+            var randHex = crypto.randomFillSync(Buffer.alloc((length + isOdd) / 2)).toString('hex');
+            return isOdd ? randHex.slice(1) : randHex;
         }
     }, {
         key: makeRequest,

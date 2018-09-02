@@ -69,7 +69,7 @@ netease.album('35327877').then(data => {
   consolewarn('歌曲地址', error)
 })
 
-netease.lyric('479403027').then(data => {
+netease.lyric('411356994').then(data => {
   successLogs.push({ name: '歌词', data })
   consolelog('歌词成功')
 }).catch(error => {
@@ -85,7 +85,7 @@ netease.url('405253742').then(data => {
   consolewarn('歌曲地址', error)
 })
 
-netease.song('479403027').then(data => {
+netease.song('411356994').then(data => {
   successLogs.push({ name: '歌曲详情', data })
   consolelog('歌曲详情成功')
 }).catch(error => {
