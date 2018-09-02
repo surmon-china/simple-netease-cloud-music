@@ -1,6 +1,9 @@
 
 ## CHANGELOG
 
+### v0.4.0
+
+[PR8 - use node native crypto and encode; avoid duplicate encoding](https://github.com/surmon-china/simple-netease-cloud-music/pull/8) 去除冗余的第三方库，更新测试脚本
 
 ### v0.3.4
 
