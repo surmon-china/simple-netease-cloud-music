@@ -1,3 +1,8 @@
+/*
+ * @file Main of simple-netease-cloud-music
+ * @author Surmon <https://github.com/surmon-china>
+ */
+
 const http = require('http')
 const crypto = require('crypto')
 const querystring = require('querystring')

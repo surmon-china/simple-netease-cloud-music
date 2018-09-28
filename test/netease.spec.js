@@ -1,6 +1,9 @@
+/*
+ * @file Mocha Test of simple-netease-cloud-music
+ * @author Surmon <https://github.com/surmon-china>
+ */
 
-// Mocha Test
-const netease = require('../src/netease')
+const netease = require('../dist/netease')
 const expect = require('chai').expect
 const nm = new netease()
 

@@ -1,3 +1,8 @@
+/*
+ * @file Example of simple-netease-cloud-music
+ * @author Surmon <https://github.com/surmon-china>
+ */
+
 const Netease = require('../dist/netease.js')
 const netease = new Netease()
 

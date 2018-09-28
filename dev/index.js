@@ -1,3 +1,7 @@
+/*
+ * @file Dev of simple-netease-cloud-music
+ * @author Surmon <https://github.com/surmon-china>
+ */
 
 const http = require('http')
 const Buffer = require('buffer').Buffer  
