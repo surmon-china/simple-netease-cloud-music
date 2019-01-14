@@ -28,11 +28,11 @@ function randomCookies(music_u) {
     return CookiesList[num];
 }
 
-var Netease = function () {
-    function Netease() {
+var NeteaseMusic = function () {
+    function NeteaseMusic() {
         var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-        _classCallCheck(this, Netease);
+        _classCallCheck(this, NeteaseMusic);
 
         if (options.cookie) {
             this.cookie = options.cookie;
@@ -40,7 +40,7 @@ var Netease = function () {
         return this;
     }
 
-    _createClass(Netease, [{
+    _createClass(NeteaseMusic, [{
         key: 'search',
         value: function search(keyword) {
             var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
@@ -293,12 +293,19 @@ var Netease = function () {
             });
 
             response.on('end', function () {
-                return resolve(JSON.parse(responseBody));
+                if (!responseBody) {
+                    return reject('remote result empty');
+                }
+                try {
+                    return resolve(JSON.parse(responseBody));
+                } catch (error) {
+                    return resolve(responseBody);
+                }
             });
         }
     }]);
 
-    return Netease;
+    return NeteaseMusic;
 }();
 
-module.exports = Netease;
+module.exports = NeteaseMusic;

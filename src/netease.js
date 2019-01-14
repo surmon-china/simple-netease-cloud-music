@@ -55,7 +55,7 @@ function randomCookies(music_u) {
 }
 
 
-class Netease {
+class NeteaseMusic {
 
     constructor(options = {}) {
         if (options.cookie) {
@@ -66,9 +66,7 @@ class Netease {
     
     /**
      * 根据关键词获取歌曲列表
-     * 
      * @param {Integer} string 关键词
-     * 
      * @return {Promise}
      */
     search(keyword, page = 1, limit = 3) {
@@ -92,9 +90,7 @@ class Netease {
 
     /**
      * 根据艺术家 id 获取艺术家信息
-     * 
      * @param {Integer} string 艺术家 id
-     * 
      * @return {Promise}
      */
     artist(id, limit = 50) {
@@ -116,9 +112,7 @@ class Netease {
 
     /**
      * 根据歌单 id 获取歌单信息和歌曲列表
-     * 
      * @param {Integer} string 歌单 id
-     * 
      * @return {Promise}
      */
     playlist(id) {
@@ -139,9 +133,7 @@ class Netease {
 
     /**
      * 根据歌单 id 获取歌单信息和歌曲列表 !!!临时替代方案
-     * 
      * @param {Integer} string 歌单 id
-     * 
      * @return {Promise}
      */
     _playlist(id) {
@@ -162,9 +154,7 @@ class Netease {
 
     /**
      * 根据专辑 id 获取专辑信息及歌曲列表
-     * 
      * @param {Integer} string 专辑 id
-     * 
      * @return {Promise}
      */
     album(id) {
@@ -182,9 +172,7 @@ class Netease {
 
     /**
      * 根据歌曲 id 获取歌曲信息
-     * 
      * @param {Integer} string 歌曲 id
-     * 
      * @return {Promise}
      */
     song(id) {
@@ -204,9 +192,7 @@ class Netease {
 
     /**
      * 根据歌曲 id 获取歌曲资源地址
-     * 
      * @param {Integer} string 歌曲 id
-     * 
      * @return {Promise}
      */
     url(id, br = 320) {
@@ -227,9 +213,7 @@ class Netease {
 
     /**
      * 根据歌曲 id 获取歌词
-     * 
      * @param {Integer} string 歌曲 id
-     * 
      * @return {Object}
      */
     lyric(id) {
@@ -253,9 +237,7 @@ class Netease {
 
     /**
      * 根据封面图片 id 获取图片地址
-     * 
      * @param {Integer} string 图片 id
-     * 
      * @return {Object}
      */
     picture(id, size = 300) {
@@ -282,9 +264,7 @@ class Netease {
 
     /**
      * 私有方法，加密
-     * 
      * @param {Object} body 表单数据
-     * 
      * @return {String} 加密后的表单数据
      */
     [neteaseAESECB](body) {
@@ -300,11 +280,9 @@ class Netease {
 
     /**
      * 获取请求选项
-     * 
      * @param {String} method GET | POST
      * @param {String} path http 请求路径
      * @param {Integer} contentLength 如何是 POST 请求，参数长度
-     * 
      * @return Object
      */
     [getHttpOption](method, path, contentLength) {
@@ -332,7 +310,6 @@ class Netease {
 
     /**
      * 获取随机字符串
-     *
      * @param {Integer} length 生成字符串的长度
      */
     [getRandomHex](length) {
@@ -343,10 +320,8 @@ class Netease {
 
     /**
      * 发送请求
-     * 
      * @param {Object} options 请求选项
      * @param {String} form 表单数据
-     * 
      * @return Promise
      */
     [makeRequest](options, form) {
@@ -370,7 +345,6 @@ class Netease {
 
     /**
      * 响应处理
-     * 
      * @param {http.ServerResponse} response 
      * @param {Promise.resolve} resolve 
      * @param {Promise.reject} reject 
@@ -389,8 +363,17 @@ class Netease {
         response.on('data', chunk => responseBody += chunk.toString())
 
         // once all the data has been read, resolve the Promise 
-        response.on('end', () => resolve(JSON.parse(responseBody)))
+        response.on('end', () => {
+            if (!responseBody) {
+                return reject('remote result empty')
+            }
+            try {
+                return resolve(JSON.parse(responseBody));
+            } catch (error) {
+                return resolve(responseBody);
+            }
+        })
     }
 }
 
-module.exports = Netease
+module.exports = NeteaseMusic

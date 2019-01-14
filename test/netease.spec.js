@@ -32,6 +32,18 @@ describe('测试网易云接口', () => {
       })
   })
 
+  it('测试歌单接口容错', done => {
+    nm._playlist(undefined)
+      .then(data => {
+        expect(data).not.to.be.empty
+        expect(data.code).to.be.equal(400)
+        done()
+      })
+      .catch(e => {
+        done(e)
+      })
+  })
+
   it('测试歌单2', done => {
     nm._playlist('751387161')
       .then(data => {
@@ -65,6 +77,17 @@ describe('测试网易云接口', () => {
       })
       .catch(err => {
         done(err)
+      })
+  })
+
+  it('测试歌词接口容错', done => {
+    nm.lyric(undefined)
+      .then(data => {
+        done()
+      })
+      .catch(e => {
+        expect(e).to.be.equal('remote result empty')
+        done()
       })
   })
 
