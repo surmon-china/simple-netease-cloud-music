@@ -1,7 +1,10 @@
 
 ## CHANGELOG
 
-### v00.4.2
+### v0.4.4
+- update typedefination
+
+### v0.4.2
 - add typedefination
 - 响应容错处理
 

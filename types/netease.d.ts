@@ -1,12 +1,12 @@
 
-interface IClassOption {
+declare type Id = number | string;
+
+declare interface IClassOption {
   cookie?: string;
 }
 
-type Id = number | string;
-
 declare class NeteaseMusic {
-  constructor(option?: IClassOption): (typeof NeteaseMusic);
+  constructor(option?: IClassOption);
   search (keyword?: string, page?: number, limit?: number): Promise<any>;
   artist (id: Id, limit?: number): Promise<any>;
   playlist (id: Id): Promise<any>;
@@ -18,6 +18,6 @@ declare class NeteaseMusic {
   picture (id: Id, size?: number): Promise<any>;
 }
 
-declare module "simple-netease-cloud-music" {
-  export default NeteaseMusic;
-}
+declare namespace NeteaseMusic {}
+
+export = NeteaseMusic;
