@@ -1,22 +1,21 @@
-[![GitHub stars](https://img.shields.io/github/stars/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music/stargazers)
-[![Build Status](https://travis-ci.org/surmon-china/simple-netease-cloud-music.svg?branch=master)](https://travis-ci.org/surmon-china/simple-netease-cloud-music)
-[![GitHub issues](https://img.shields.io/github/issues/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music/issues)
-[![GitHub forks](https://img.shields.io/github/forks/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music/network)
-[![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/surmon-china/simple-netease-cloud-music)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/surmon-china/simple-netease-cloud-music.svg?style=flat-square)](https://twitter.com/intent/tweet?url=https://github.com/surmon-china/simple-netease-cloud-music)
-[![](https://badge.juejin.im/entry/5946b695128fe1006a48643f/likes.svg?style=flat-square)](https://juejin.im/entry/5946b695128fe1006a48643f/detail)
+# simple-netease-cloud-music
+
+[![GitHub stars](https://img.shields.io/github/stars/surmon-china/simple-netease-cloud-music.svg?style=for-the-badge)](https://github.com/surmon-china/simple-netease-cloud-music/stargazers)
+[![npm](https://img.shields.io/npm/v/simple-netease-cloud-music?color=%23c7343a&label=npm&style=for-the-badge)](https://www.npmjs.com/package/simple-netease-cloud-music)
+[![GitHub issues](https://img.shields.io/github/issues-raw/surmon-china/simple-netease-cloud-music.svg?style=for-the-badge)](https://github.com/surmon-china/simple-netease-cloud-music/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/surmon-china/simple-netease-cloud-music.svg?style=for-the-badge)](https://github.com/surmon-china/simple-netease-cloud-music)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](https://github.com/surmon-china/simple-netease-cloud-music/blob/master/LICENSE)
+
 
 [![NPM](https://nodei.co/npm/simple-netease-cloud-music.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/simple-netease-cloud-music/)
-[![NPM](https://nodei.co/npm-dl/simple-netease-cloud-music.png?months=9&height=3)](https://nodei.co/npm/simple-netease-cloud-music/)
 
 ### 能做什么
 
 简单、统一、轻巧的 Node.js 版网易云音乐 API。
 
-- 简单：8个常用接口
-- 统一：标准 Promise API
-- 轻巧：不依赖任何第三方库
+- 简单：**8个常用接口**
+- 统一：**标准 Promise API**
+- 轻巧：**不依赖任何第三方库**
 
 ### 贡献者
 
@@ -76,10 +75,12 @@ nm.song('479403027').then(data => {
 })
 ```
 
-### 测试执行
+### 测试开发
 
-```
-npm run test
-npm run example
+```bash
+yarn dev
+yarn lint
+yarn test
+yarn build
 ```
 

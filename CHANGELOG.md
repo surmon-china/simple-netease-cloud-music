@@ -1,6 +1,16 @@
 
 ## CHANGELOG
 
+### v0.5.0
+
+**Added**
+- Add ESlint
+
+**Update**
+- Upgrade builder to `abc-factory`
+- Upgrade Type to `TypeScript`
+- Upgrade Jest spacs
+
 ### v0.4.4
 - update typedefination
 

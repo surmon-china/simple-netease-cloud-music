@@ -1,41 +1,99 @@
 /*
- * @file Dev of simple-netease-cloud-music
+ * @file Example of simple-netease-cloud-music
  * @author Surmon <https://github.com/surmon-china>
  */
 
-const http = require('http')
-const Buffer = require('buffer').Buffer  
-const form = 'eparams=A0D9583F4C5FF68DE851D2893A49DE986BDC9600830840B64DD89587B2E6895CBEFEE7EF3896AC69F1BE2FE8253F983D7475D0CCC40A36775670A9DFB0A3C808C82206DAF46743B32B91BE74823CDF174A9FFAD1BBF7E39BFF0ED8FB615304EEAAA7A2001BF3B34AF32F6761D86D6966'
-const options = {
-    port: 80,
-    path: '/api/v3/playlist/detail?id=751387161',
-    method: 'POST',
-    hostname: 'music.163.com',
-    headers: {
-        'referer': 'https://music.163.com/',
-        // 'cookie': 'os=linux; appver=1.0.0.1026; osver=Ubuntu%2017.10; MUSIC_U=78d411095f4b022667bc8ec49e9a44cca088df057d987f5feaf066d37458e41c4a7d9447977352cf27ea9fee03f6ec4441049cea1c6bb9b6; __remember_me=true',
-        'useragent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
-    }
+const Netease = require('../dist/netease.cjs.js')
+const netease = new Netease()
+
+const errorLogs = []
+const successLogs = []
+
+function printLog() {
+  if ((errorLogs.length + successLogs.length) >= 9) {
+    console.log('成功：' + successLogs.length + '!', successLogs)
+    console.log('失败：' + errorLogs.length + '!', errorLogs)
+  }
 }
 
-// options['headers']['Content-Type'] = 'application/x-www-form-urlencoded'
-// options['headers']['Content-Length'] = Buffer.byteLength(form)
+function consolelog(log) {
+  console.log(log)
+  printLog()
+}
 
-const req = http.request(options, res => {
-    res.setEncoding('utf8')
-    res.on('data', date => {
-        console.log('date', date)
-    })
-    res.on('end',() => {
-        console.log('结束了')
-    })
+function consolewarn(log) {
+  console.warn(log)
+  printLog()
+}
+
+netease.search('一人饮酒醉').then(data => {
+  successLogs.push({ name: '歌曲搜索', data })
+  consolelog('歌曲搜索成功')
+}).catch(error => {
+  errorLogs.push({ name: '歌曲搜索', error })
+  consolewarn('歌曲搜索失败', error)
 })
 
-req.on('error', err => {
-    console.error(`problem with request: ${err.message}`)
+netease.playlist('751387161').then(data => {
+  successLogs.push({ name: '歌单1', data })
+  consolelog('歌单1成功')
+}).catch(error => {
+  errorLogs.push({ name: '歌单1', error })
+  consolewarn('歌单1失败', error)
 })
 
-// req.write(form)
-req.end()
+netease._playlist('751387161').then(data => {
+  successLogs.push({ name: '歌单2', data })
+  consolelog('歌单2成功')
+}).catch(error => {
+  errorLogs.push({ name: '歌单2', error })
+  consolewarn('歌单2失败', error)
+})
 
-console.log(req)
+netease.picture('19124905253588326', 400).then(data => {
+  successLogs.push({ name: '图片地址', data })
+  consolelog('图片地址成功')
+}).catch(error => {
+  errorLogs.push({ name: '图片地址', error })
+  consolewarn('图片地址失败', error)
+})
+
+netease.artist('4130').then(data => {
+  successLogs.push({ name: '艺术家', data })
+  consolelog('艺术家成功')
+}).catch(error => {
+  errorLogs.push({ name: '艺术家', error })
+  consolewarn('艺术家失败', error)
+})
+
+netease.album('35327877').then(data => {
+  successLogs.push({ name: '唱片', data })
+  consolelog('唱片成功')
+}).catch(error => {
+  errorLogs.push({ name: '唱片', error })
+  consolewarn('唱片失败', error)
+})
+
+netease.lyric('411356994').then(data => {
+  successLogs.push({ name: '歌词', data })
+  consolelog('歌词成功')
+}).catch(error => {
+  errorLogs.push({ name: '歌词', error })
+  consolewarn('歌词失败', error)
+})
+
+netease.url('405253742').then(data => {
+  successLogs.push({ name: '歌曲地址', data })
+  consolelog('歌曲地址成功')
+}).catch(error => {
+  errorLogs.push({ name: '歌曲地址', error })
+  consolewarn('歌曲地址失败', error)
+})
+
+netease.song('411356994').then(data => {
+  successLogs.push({ name: '歌曲详情', data })
+  consolelog('歌曲详情成功')
+}).catch(error => {
+  errorLogs.push({ name: '歌曲详情', error })
+  consolewarn('歌曲详情失败', error)
+})
