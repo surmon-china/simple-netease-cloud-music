@@ -32,7 +32,6 @@
     "dist",
     "types"
   ],
-  "typings": "types/netease.d.ts",
   "types": "types/netease.d.ts",
   "private": false,
   "license": "MIT",

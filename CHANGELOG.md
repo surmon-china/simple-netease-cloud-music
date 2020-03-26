@@ -1,7 +1,8 @@
 
-## CHANGELOG
+# Changelog
+All notable changes to this project will be documented in this file.
 
-### v0.5.0
+### v0.5.0 (2020-03-22)
 
 **Added**
 - Add ESlint
