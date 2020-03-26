@@ -7,9 +7,9 @@
 - Add ESlint
 
 **Update**
-- Upgrade builder to `abc-factory`
+- Upgrade bundler to `abc-factory`
 - Upgrade Type to `TypeScript`
-- Upgrade Jest spacs
+- Upgrade Jest spec
 
 ### v0.4.4
 - update typedefination

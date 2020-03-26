@@ -29,17 +29,16 @@
   "module": "dist/netease.esm.js",
   "files": [
     "src",
-    "dist"
+    "dist",
+    "types"
   ],
   "typings": "types/netease.d.ts",
   "types": "types/netease.d.ts",
   "private": false,
   "license": "MIT",
   "devDependencies": {
+    "@surmon-china/abc-factory": "^0.3.2",
     "@types/node": "^12.12.31",
     "typescript": "^3.8.3"
-  },
-  "dependencies": {
-    "@surmon-china/abc-factory": "../abc-factory"
   }
 }
