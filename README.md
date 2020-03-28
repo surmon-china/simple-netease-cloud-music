@@ -84,3 +84,6 @@ yarn test
 yarn build
 ```
 
+### License
+
+[MIT](https://github.com/surmon-china/simple-netease-cloud-music/blob/master/LICENSE)
