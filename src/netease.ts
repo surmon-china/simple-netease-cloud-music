@@ -134,7 +134,6 @@ export default class NeteaseMusic {
       const request = http.request(options, response => {
         response.setEncoding('utf8')
 
-        // TODO: status -> statusCode
         let responseBody = ''
         const hasResponseFailed = response.statusCode && response.statusCode >= 400
 
