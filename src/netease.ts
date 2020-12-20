@@ -261,7 +261,7 @@ export default class NeteaseMusic {
         id,
         n: limit
       },
-      url: '/api/v3/playlist/detail'
+      url: '/api/v2/playlist/detail'
     }
 
     body.url += '?' + querystring.stringify(body.params)

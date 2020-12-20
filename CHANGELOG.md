@@ -2,6 +2,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+### v0.5.2 (2020-12-21)
+
+**Feature**
+- `_playlist` API `v3` to `v2`
+
 ### v0.5.1 (2020-12-20)
 
 **Feature**
