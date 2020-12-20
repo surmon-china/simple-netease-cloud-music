@@ -52,17 +52,17 @@ export default class NeteaseMusic {
      */
     artist(id: songId, limit?: number): Promise<any>;
     /**
-     * 根据歌单 id 获取歌单信息和歌曲列表
+     * Get playlist by playlist ID
      * @param {Integer} string 歌单 id
      * @return {Promise}
      */
-    playlist(id: songId): Promise<any>;
+    playlist(id: songId, limit?: number): Promise<any>;
     /**
-     * 根据歌单 id 获取歌单信息和歌曲列表 !!!临时替代方案
+     * HACK: Get playlist by playlist ID
      * @param {Integer} string 歌单 id
      * @return {Promise}
      */
-    _playlist(id: songId): Promise<any>;
+    _playlist(id: songId, limit?: number): Promise<any>;
     /**
      * 根据专辑 id 获取专辑信息及歌曲列表
      * @param {Integer} string 专辑 id
@@ -74,13 +74,13 @@ export default class NeteaseMusic {
      * @param {Integer} string 歌曲 id
      * @return {Promise}
      */
-    song(id: songId): Promise<any>;
+    song(id: songId | songId[]): Promise<any>;
     /**
      * 根据歌曲 id 获取歌曲资源地址
      * @param {Integer} string 歌曲 id
      * @return {Promise}
      */
-    url(id: songId, br?: number): Promise<any>;
+    url(id: songId | songId[], br?: number): Promise<any>;
     /**
      * 根据歌曲 id 获取歌词
      * @param {Integer} string 歌曲 id

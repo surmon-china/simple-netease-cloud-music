@@ -145,7 +145,7 @@ export default class NeteaseMusic {
         * https://nodejs.org/api/stream.html#stream_event_data */
         response.on('data', chunk => responseBody += chunk.toString())
 
-        // once all the data has been read, resolve the Promise 
+        // once all the data has been read, resolve the Promise
         response.on('end', () => {
           if (!responseBody) {
             return reject('remote result empty')
@@ -181,11 +181,11 @@ export default class NeteaseMusic {
       params: {
         s: keyword,
         type: 1,
-        limit: limit,
+        limit,
         total: true,
         offset: page - 1
       },
-      url: 'http://music.163.com/api/cloudsearch/pc'
+      url: 'https://music.163.com/api/cloudsearch/pc'
     }
 
     const form = this[neteaseAESECB](body)
@@ -211,7 +211,7 @@ export default class NeteaseMusic {
         ext: true,
         top: limit
       },
-      url: `http://music.163.com/api/v1/artist/${id}`
+      url: `https://music.163.com/api/v1/artist/${id}`
     }
 
     const form = this[neteaseAESECB](body)
@@ -225,18 +225,18 @@ export default class NeteaseMusic {
   }
 
   /**
-   * 根据歌单 id 获取歌单信息和歌曲列表
+   * Get playlist by playlist ID
    * @param {Integer} string 歌单 id
    * @return {Promise}
    */
-  playlist(id: songId) {
+  playlist(id: songId, limit = 1000) {
     const body = {
       method: 'POST',
       params: {
         id,
-        n: 1000
+        n: limit
       },
-      url: 'http://music.163.com/api/v3/playlist/detail'
+      url: 'https://music.163.com/api/v3/playlist/detail'
     }
 
     const form = this[neteaseAESECB](body)
@@ -250,16 +250,16 @@ export default class NeteaseMusic {
   }
 
   /**
-   * 根据歌单 id 获取歌单信息和歌曲列表 !!!临时替代方案
+   * HACK: Get playlist by playlist ID
    * @param {Integer} string 歌单 id
    * @return {Promise}
    */
-  _playlist(id: songId) {
+  _playlist(id: songId, limit = 1000) {
     const body = {
       method: 'POST',
       params: {
         id,
-        n: 1000
+        n: limit
       },
       url: '/api/v3/playlist/detail'
     }
@@ -279,7 +279,7 @@ export default class NeteaseMusic {
     const body = {
       method: 'GET',
       params: { id },
-      url: `http://music.163.com/api/v1/album/${id}`
+      url: `https://music.163.com/api/v1/album/${id}`
     }
 
     const form = this[neteaseAESECB](body)
@@ -297,13 +297,14 @@ export default class NeteaseMusic {
    * @param {Integer} string 歌曲 id
    * @return {Promise}
    */
-  song(id: songId) {
+  song(id: songId | songId[]) {
+    const ids = Array.isArray(id) ? id : [id]
     const body = {
       method: 'POST',
       params: {
-        c: `[{id: ${id}}]`
+        c: `[${ids.map(_id => `{id: ${_id}}`).join(',')}]`,
       },
-      url: 'http://music.163.com/api/v3/song/detail'
+      url: 'https://music.163.com/api/v3/song/detail'
     }
 
     const form = this[neteaseAESECB](body)
@@ -321,14 +322,14 @@ export default class NeteaseMusic {
    * @param {Integer} string 歌曲 id
    * @return {Promise}
    */
-  url(id: songId, br = 320) {
+  url(id: songId | songId[], br = 320) {
     const body = {
       method: 'POST',
       params: {
-        ids: [id],
+        ids: Array.isArray(id) ? id : [id],
         br: br * 1000
       },
-      url: 'http://music.163.com/api/song/enhance/player/url'
+      url: 'https://music.163.com/api/song/enhance/player/url'
     }
 
     const form = this[neteaseAESECB](body)
@@ -356,7 +357,7 @@ export default class NeteaseMusic {
         kv: -1,
         tv: -1,
       },
-      url: 'http://music.163.com/api/song/lyric',
+      url: 'https://music.163.com/api/song/lyric',
     }
 
     const form = this[neteaseAESECB](body)

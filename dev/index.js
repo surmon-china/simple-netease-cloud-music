@@ -90,7 +90,7 @@ netease.url('405253742').then(data => {
   consolewarn('歌曲地址失败', error)
 })
 
-netease.song('411356994').then(data => {
+netease.song(['411356994']).then(data => {
   successLogs.push({ name: '歌曲详情', data })
   consolelog('歌曲详情成功')
 }).catch(error => {

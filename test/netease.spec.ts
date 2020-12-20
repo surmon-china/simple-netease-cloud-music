@@ -88,6 +88,19 @@ describe('测试网易云接口', () => {
       })
   })
 
+  it('测试多歌曲详情', done => {
+    nm.song(['411356994', '1451220609'])
+      .then(data => {
+        expect(data).not.toBeUndefined()
+        expect(data.songs[0].name).toBe('火葬场之歌')
+        expect(data.songs[1].name).toBe('Babel')
+        done()
+      })
+      .catch(error => {
+        done(error)
+      })
+  })
+
   it('测试获取唱片', done => {
     nm.album('35327877')
       .then(data => {
@@ -102,6 +115,18 @@ describe('测试网易云接口', () => {
 
   it('测试获取播放地址', done => {
     nm.url('33894312')
+      .then(data => {
+        expect(data).not.toBeUndefined()
+        expect(data.data[0].id).toBe(33894312)
+        done()
+      })
+      .catch(error => {
+        done(error)
+      })
+  })
+
+  it('测试获取多歌曲播放地址', done => {
+    nm.url(['33894312', '1451220609'])
       .then(data => {
         expect(data).not.toBeUndefined()
         expect(data.data[0].id).toBe(33894312)

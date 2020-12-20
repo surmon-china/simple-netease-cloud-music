@@ -2,6 +2,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+### v0.5.1 (2020-12-20)
+
+**Feature**
+- Support params
+
 ### v0.5.0 (2020-03-22)
 
 **Added**
