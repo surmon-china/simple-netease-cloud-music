@@ -1,10 +1,12 @@
 # simple-netease-cloud-music
 
 [![GitHub stars](https://img.shields.io/github/stars/surmon-china/simple-netease-cloud-music.svg?style=for-the-badge)](https://github.com/surmon-china/simple-netease-cloud-music/stargazers)
+&nbsp;
 [![npm](https://img.shields.io/npm/v/simple-netease-cloud-music?color=%23c7343a&label=npm&style=for-the-badge)](https://www.npmjs.com/package/simple-netease-cloud-music)
+&nbsp;
 [![GitHub issues](https://img.shields.io/github/issues-raw/surmon-china/simple-netease-cloud-music.svg?style=for-the-badge)](https://github.com/surmon-china/simple-netease-cloud-music/issues)
-[![GitHub last commit](https://img.shields.io/github/last-commit/surmon-china/simple-netease-cloud-music.svg?style=for-the-badge)](https://github.com/surmon-china/simple-netease-cloud-music)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](https://github.com/surmon-china/simple-netease-cloud-music/blob/master/LICENSE)
+&nbsp;
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](/LICENSE)
 
 
 [![NPM](https://nodei.co/npm/simple-netease-cloud-music.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/simple-netease-cloud-music/)
@@ -86,4 +88,4 @@ yarn build
 
 ### License
 
-[MIT](https://github.com/surmon-china/simple-netease-cloud-music/blob/master/LICENSE)
+[MIT](/LICENSE)

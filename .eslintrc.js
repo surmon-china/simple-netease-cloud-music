@@ -1,7 +1,10 @@
 module.exports = {
-  extends: './node_modules/@surmon-china/abc-factory/preset/eslintrc/typescript',
+  extends: ['plugin:@typescript-eslint/recommended'],
+  plugins: ['@typescript-eslint'],
   rules: {
-    '@typescript-eslint/explicit-function-return-type': 0,
-    '@typescript-eslint/no-explicit-any': 0
-  }
+    '@typescript-eslint/explicit-module-boundary-types': 0,
+    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/no-empty-function': 0,
+    '@typescript-eslint/ban-types': 0,
+  },
 }

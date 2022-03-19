@@ -1,1 +1,12 @@
-module.exports = require('@surmon-china/abc-factory/preset/jest/typescript')
+module.exports = {
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
+  moduleFileExtensions: [
+    "js",
+    "ts",
+    "json",
+  ],
+  transform: {
+    "^.+\\.ts?$": "ts-jest"
+  }
+}

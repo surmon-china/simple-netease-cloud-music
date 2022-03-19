@@ -11,7 +11,7 @@ describe('测试网易云接口', () => {
     nm.search('一人饮酒醉')
       .then(data => {
         expect(data).not.toBeUndefined()
-        expect(data.result.songs[0].name).toContain('一人饮酒醉')
+        expect(data.result.songs[0].name).toContain('一人我饮酒醉')
         done()
       })
       .catch(error => {
@@ -105,7 +105,7 @@ describe('测试网易云接口', () => {
     nm.album('35327877')
       .then(data => {
         expect(data).not.toBeUndefined()
-        expect(data.album.blurPicUrl.slice(10, data.album.blurPicUrl.length)).toBe(`music.126.net/4mUKGD6wyIW0XpTWXiFcdQ==/19124905253588326.jpg`)
+        expect(data.album.blurPicUrl.slice(10, 24)).toBe(`music.126.net/`)
         done()
       })
       .catch(error => {
